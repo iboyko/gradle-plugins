@@ -1,12 +1,16 @@
 apply plugin: 'groovy'
 
+group = 'io.github.iboyko.jpamodelgen'
+version = '1.0.0-SNAPSHOT'
+
+repositories{ jcenter() }
+
 dependencies {
     compile gradleApi()
     compile localGroovy()
-}
 
-group = 'io.github.iboyko.jpamodelgen'
-version = '1.0.0-SNAPSHOT'
+    testCompile ("junit:junit:4.12")
+}
 
 
 wrapper {
