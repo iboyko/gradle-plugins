@@ -56,3 +56,28 @@ jpaModelgen {
 }
 ```
 
+
+__Use together with querydsl plugin__
+
+```groovy
+include com.ewerk.gradle.plugins.tasks.QuerydlsCompile
+include com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
+
+plugins {
+   id "io.github.iboyko.jpamodelgen" version "1.0.0"
+   id "com.ewerk.gradle.plugins.querydsl" version "1.0.3"
+}
+
+
+/* Include only entities to ignore conflicts of Querydsl generated classes usage*/
+project.tasks.withType(JpaModelgenCompile){ task ->
+	task.includes += ['*/*Entity.java']
+}
+
+/* Include only entities to ignore conflicts of JPA Metamodel generated classes usage*/
+project.tasks.withType(QuerydlsCompile){ task ->
+	task.includes += ['*/*Entity.java']
+}
+
+```
+
