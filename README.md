@@ -60,8 +60,8 @@ jpaModelgen {
 __Use together with querydsl plugin__
 
 ```groovy
-include com.ewerk.gradle.plugins.tasks.QuerydlsCompile
-include com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
+import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
+import com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
 
 plugins {
    id "io.github.iboyko.jpamodelgen" version "1.0.0"
