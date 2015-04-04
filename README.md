@@ -30,7 +30,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "io.github.iboyko.jpamodelgen" version "1.0.0"
+  id "com.github.iboyko.jpamodelgen" version "1.0.0"
 }
 ```
 
@@ -43,7 +43,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "io.github.iboyko.jpamodelgen:plugin:1.0.0"
+    classpath "com.github.iboyko.jpamodelgen:plugin:1.0.0"
   }
 }
 
@@ -64,7 +64,7 @@ import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
 import com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
 
 plugins {
-   id "io.github.iboyko.jpamodelgen" version "1.0.0"
+   id "com.github.iboyko.jpamodelgen" version "1.0.0"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.3"
 }
 
