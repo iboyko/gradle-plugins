@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.github.iboyko.jpamodelgen;
 
 import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.*
-import io.github.iboyko.jpamodelgen.tasks.CleanJpaModelgenSourcesDir
-import io.github.iboyko.jpamodelgen.tasks.InitJpaModelgenSourcesDir
-import io.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
 
 import org.gradle.api.Project
 import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDependency
@@ -26,17 +24,21 @@ import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 
+import com.github.iboyko.jpamodelgen.tasks.CleanJpaModelgenSourcesDir
+import com.github.iboyko.jpamodelgen.tasks.InitJpaModelgenSourcesDir
+import com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
+
 /**
  * @author Illya Boyko
  * @since 1.0.0
  */
 class JpaModelgenPluginTest {
- 
+
     private Project project;
-    
+
     public JpaModelgenPluginTest() {
 	project = ProjectBuilder.builder().build()
-	project.apply plugin: 'jpaModelgen'
+	project.plugins.apply(JpaModelgenPlugin.class)
     }
 
     @Test
@@ -67,7 +69,7 @@ class JpaModelgenPluginTest {
     @Test
     public void testPluginTasksAreAvailable() {
 	assertThat(project.tasks.initJpaModelgenSourcesDir, notNullValue())
-	assertThat(project.tasks.cleanJpaModelgenSourcesDir, notNullValue())	
+	assertThat(project.tasks.cleanJpaModelgenSourcesDir, notNullValue())
     }
 
     @Test

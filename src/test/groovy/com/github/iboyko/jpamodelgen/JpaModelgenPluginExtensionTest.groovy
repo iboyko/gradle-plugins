@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.iboyko.jpamodelgen
+package com.github.iboyko.jpamodelgen
 
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.hamcrest.MatcherAssert.assertThat
 
-import org.junit.Test;
+import org.junit.Test
 
 /**
  * @author Illya Boyko
  * @since 1.0.0
  */
-class  JpaModelgenPluginExtensionTest{
+class JpaModelgenPluginExtensionTest {
     
     private JpaModelgenPluginExtension extension;
 
-    public JpaModelgenExtension() {
+    public JpaModelgenPluginExtensionTest() {
 	extension = new JpaModelgenPluginExtension()
     }
 

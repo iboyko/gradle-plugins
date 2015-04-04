@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.iboyko.jpamodelgen
+package com.github.iboyko.jpamodelgen
 
-import at.comm_unity.gradle.plugins.jpamodelgen.tasks.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.plugins.JavaPlugin
+
+import com.github.iboyko.jpamodelgen.tasks.*
 
 /**
  * This plugin can be used to easily create Jpa Metamodel classes and attach them to the project
@@ -61,14 +62,14 @@ class JpaModelgenPlugin implements Plugin<Project> {
 	    project.plugins.apply(JavaPlugin.class)
 	}
 
-	// add 'Querydsl' DSL extension
+	// add 'JpaModelgen' DSL extension
 	project.extensions.create(JpaModelgenPluginExtension.NAME, JpaModelgenPluginExtension)
 
 	// add new tasks for creating/cleaning the auto-value sources dir
 	project.task(type: CleanJpaModelgenSourcesDir, "cleanJpaModelgenSourcesDir")
 	project.task(type: InitJpaModelgenSourcesDir, "initJpaModelgenSourcesDir")
 
-	// make 'clean' depend clean ing querydsl sources
+	// make 'clean' depend cleaning jpaModelgen sources
 	project.tasks.clean.dependsOn project.tasks.cleanJpaModelgenSourcesDir
 
 	project.afterEvaluate {
@@ -108,7 +109,7 @@ class JpaModelgenPlugin implements Plugin<Project> {
     private static File jpaModelgenSourcesDir(Project project) {
 	String path = project.extensions.jpaModelgen.jpaModelgenSourcesDir
 	File jpaModelgenSourcesDir = project.file(path)
-	LOG.info("Querydsl sources dir: {}", jpaModelgenSourcesDir.absolutePath);
+	LOG.info("JpaModelgen sources dir: {}", jpaModelgenSourcesDir.absolutePath);
 	return jpaModelgenSourcesDir
     }
 }

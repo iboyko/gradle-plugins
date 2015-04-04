@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.iboyko.jpamodelgen.tasks;
+package com.github.iboyko.jpamodelgen.tasks;
 
 import org.gradle.api.tasks.compile.JavaCompile;
 

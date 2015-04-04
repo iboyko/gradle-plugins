@@ -1,18 +1,17 @@
-package io.github.iboyko.jpamodelgen.tasks;
-
-import io.github.iboyko.jpamodelgen.JpaModelgenPlugin;
-
-import org.gradle.api.Project
-import org.gradle.testfixtures.ProjectBuilder
-import org.testng.annotations.BeforeMethod
-import org.testng.annotations.Test
+package com.github.iboyko.jpamodelgen.tasks;
 
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.hamcrest.CoreMatchers.notNullValue
 import static org.hamcrest.MatcherAssert.assertThat
 
+import org.gradle.api.Project
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Test;
+
+import com.github.iboyko.jpamodelgen.JpaModelgenPlugin
+
 /**
- * @author holgerstolzenberg
+ * @author Illya Boyko
  * @since 1.0.0
  */
 class InitJpaModelgenSourcesDirTest {
@@ -46,6 +45,6 @@ class InitJpaModelgenSourcesDirTest {
 
     @Test
     public void testDescription() {
-	assertThat(initTask.description, equalTo(InitQuerydslSourcesDir.DESCRIPTION));
+	assertThat(initTask.description, equalTo(InitJpaModelgenSourcesDir.DESCRIPTION));
     }
 }

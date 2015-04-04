@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.iboyko.jpamodelgen
+package com.github.iboyko.jpamodelgen
+
 /**
  * DLS extension for the JpaModelgen plugin. Provides some convenient configuration options.
  *
