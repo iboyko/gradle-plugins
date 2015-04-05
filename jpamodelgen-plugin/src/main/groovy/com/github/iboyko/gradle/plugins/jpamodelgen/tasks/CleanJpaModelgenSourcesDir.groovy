@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.iboyko.jpamodelgen.tasks
+package com.github.iboyko.gradle.plugins.jpamodelgen.tasks
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.tasks.TaskAction
 
-import com.github.iboyko.jpamodelgen.JpaModelgenPlugin
+import com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin
 
 /**
  * This task is responsible for purging the 'jpaModelgen' sources dir.

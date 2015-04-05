@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.iboyko.jpamodelgen;
+package com.github.iboyko.gradle.plugins.jpamodelgen;
 
 import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.*
@@ -24,9 +24,9 @@ import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 
-import com.github.iboyko.jpamodelgen.tasks.CleanJpaModelgenSourcesDir
-import com.github.iboyko.jpamodelgen.tasks.InitJpaModelgenSourcesDir
-import com.github.iboyko.jpamodelgen.tasks.JpaModelgenCompile
+import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.CleanJpaModelgenSourcesDir
+import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.InitJpaModelgenSourcesDir
+import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.JpaModelgenCompile
 
 /**
  * @author Illya Boyko

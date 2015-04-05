@@ -1,4 +1,4 @@
-package com.github.iboyko.jpamodelgen.tasks;
+package com.github.iboyko.gradle.plugins.jpamodelgen.tasks;
 
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.hamcrest.CoreMatchers.notNullValue
@@ -8,7 +8,7 @@ import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test;
 
-import com.github.iboyko.jpamodelgen.JpaModelgenPlugin
+import com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin
 
 /**
  * @author Illya Boyko

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.iboyko.jpamodelgen
+package com.github.iboyko.gradle.plugins.jpamodelgen
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -21,7 +21,7 @@ import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.plugins.JavaPlugin
 
-import com.github.iboyko.jpamodelgen.tasks.*
+import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.*
 
 /**
  * This plugin can be used to easily create Jpa Metamodel classes and attach them to the project

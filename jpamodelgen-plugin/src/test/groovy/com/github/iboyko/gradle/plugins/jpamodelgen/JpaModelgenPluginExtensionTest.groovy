@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.iboyko.jpamodelgen
+package com.github.iboyko.gradle.plugins.jpamodelgen
 
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.hamcrest.MatcherAssert.assertThat

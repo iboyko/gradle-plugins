@@ -13,30 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.iboyko.jpamodelgen.tasks;
-
-import org.gradle.api.tasks.compile.JavaCompile;
+package com.github.iboyko.gradle.plugins.jpamodelgen
 
 /**
- * Compiles the Metamodel using jpaModelgen annotation processors supplied by the jpaModelgen extension configuration.
- * 
+ * DLS extension for the JpaModelgen plugin. Provides some convenient configuration options.
+ *
  * @author Illya Boyko
  * @since 1.0.0
  */
-class JpaModelgenCompile extends JavaCompile {
+class JpaModelgenPluginExtension {
+    static final String NAME = "jpaModelgen"
+    static final String DEFAULT_JPAMODELGEN_SOURCES_DIR = new File("src/jpaModelgen/java")
+    static final String DEFAULT_LIBRARY = "org.hibernate:hibernate-jpamodelgen:4.3.8.Final"
+    static final String DEFAULT_PROCESSOR = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor"
 
-    JpaModelgenCompile() {
+    String jpaModelgenSourcesDir = DEFAULT_JPAMODELGEN_SOURCES_DIR
+    String library = DEFAULT_LIBRARY
 
-	setSource(project.sourceSets.main.java)
-	setClasspath(project.configurations.compile)
-
-	File file = project.file(project.jpaModelgen.jpaModelgenSourcesDir)
-	setDestinationDir(file)
-
-	options.compilerArgs += [
-	    "-proc:only",
-	    "-processor",
-	    project.extensions.jpaModelgen.processor
-	]
-    }
+    String processor = DEFAULT_PROCESSOR
 }
