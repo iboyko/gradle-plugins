@@ -12,7 +12,7 @@
 hs_err_pid*
 
 #Gradle
-/build/
+build/
 .gradle
 
 
@@ -20,4 +20,4 @@ hs_err_pid*
 .project
 .classpath
 .settings
-/bin/
+bin/

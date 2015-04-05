@@ -1,17 +1,2 @@
-apply plugin: 'groovy'
-
-group = 'com.github.iboyko.jpamodelgen'
-version = '1.0.0-SNAPSHOT'
-//artifactId = "jpamodelgen"
-
-repositories{ jcenter() }
-
-dependencies {
-    compile gradleApi()
-    compile localGroovy()
-
-    testCompile ("junit:junit:4.12")
-}
-
 
 wrapper { gradleVersion = '2.3' }

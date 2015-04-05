@@ -1,0 +1,3 @@
+rootProject.name = 'jpamodelgen'
+
+include ':jpamodelgen-plugin'
