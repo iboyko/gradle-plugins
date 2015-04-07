@@ -1,3 +1,5 @@
 rootProject.name = 'jpamodelgen'
 
 include ':jpamodelgen-plugin'
+include ':samples'
+include ':samples:jpamodelgen-sample'
