@@ -1,4 +1,4 @@
-rootProject.name = 'jpamodelgen'
+rootProject.name = 'gradle-plugins'
 
 include ':jpamodelgen-plugin'
 include ':samples'
