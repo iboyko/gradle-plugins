@@ -1,8 +1,10 @@
-apply plugin: 'groovy'
+plugins {
+    id 'groovy'
+    id 'maven'
+}
 
-group = 'com.github.iboyko.gradle.plugins.jpamodelgen'
+group = 'com.github.iboyko.gradle.plugins'
 version = '1.0.0-SNAPSHOT'
-//artifactId = "jpamodelgen"
 
 repositories{ jcenter() }
 
@@ -12,3 +14,5 @@ dependencies {
 
     testCompile ("junit:junit:4.12")
 }
+
+
