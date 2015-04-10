@@ -26,6 +26,7 @@ plugindev {
     pluginTags 'jpa', 'metamodel', 'hibernate'
     authorId 'iboyko'
     authorName 'Illya Boyko'
+    authorEmail 'illya.boyko@gmail.com'
     projectUrl 'https://github.com/iboyko/gradle-plugins/jpamodelgen-plugin'
     projectInceptionYear '2015'
     done() // do not omit this
