@@ -1,2 +1,3 @@
-# jpamodelgen
-Gradle JPA Modelgen plugin
+# Gradle Plugins
+
+[![JPA Modelgen](jpamodelgen-pligin]
