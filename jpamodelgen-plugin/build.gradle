@@ -21,8 +21,7 @@ plugindev {
     pluginId "com.github.iboyko.gradle.plugins.jpamodelgen"
     pluginName 'jpamodelgen-plugin'
     pluginImplementationClass 'com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin'
-    pluginDescription 'Gradle JPA Modelgen plugin.'
-    pluginLicenses 'Apache-2.0'
+    pluginDescription 'Gradle JPA Modelgen plugin. Take a look at How-To instructions at https://github.com/iboyko/gradle-plugins/tree/master/jpamodelgen-plugin'    pluginLicenses 'Apache-2.0'
     pluginTags 'jpa', 'metamodel', 'hibernate'
     authorId 'iboyko'
     authorName 'Illya Boyko'
