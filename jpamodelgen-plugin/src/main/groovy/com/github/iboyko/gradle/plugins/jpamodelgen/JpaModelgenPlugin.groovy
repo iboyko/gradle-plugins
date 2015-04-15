@@ -72,12 +72,11 @@ class JpaModelgenPlugin implements Plugin<Project> {
 	// make 'clean' depend cleaning jpaModelgen sources
 	project.tasks.clean.dependsOn project.tasks.cleanJpaModelgenSourcesDir
 
+	project.task(type: JpaModelgenCompile, "compileJpaModelgen")
+	project.tasks.compileJpaModelgen.dependsOn project.tasks.initJpaModelgenSourcesDir
+	project.tasks.compileJava.dependsOn project.tasks.compileJpaModelgen
+
 	project.afterEvaluate {
-
-	    project.task(type: JpaModelgenCompile, "compileJpaModelgen")
-	    project.tasks.compileJpaModelgen.dependsOn project.tasks.initJpaModelgenSourcesDir
-	    project.tasks.compileJava.dependsOn project.tasks.compileJpaModelgen
-
 	    File jpaModelgenSourcesDir = jpaModelgenSourcesDir(project)
 
 	    addLibrary(project)
