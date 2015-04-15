@@ -3,7 +3,7 @@ buildscript{
 	mavenLocal()
     }
     dependencies{
-	classpath "com.github.iboyko.gradle.plugins:jpamodelgen-plugin:1.0.0-SNAPSHOT"
+	classpath "com.github.iboyko.gradle.plugins:jpamodelgen-plugin:1.0.1"
     }
 }
 
@@ -17,6 +17,11 @@ repositories{
 jpaModelgen{
     jpaModelgenSourcesDir = 'src/jpaModelgen/java'
 }
+
+compileJpaModelgen {
+    includes += ['**/entities/*.java']
+}
+
 
 dependencies {
     compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
