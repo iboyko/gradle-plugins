@@ -66,7 +66,6 @@ compileJava.options.compilerArgs += ["-proc:none"]
 __Use together with querydsl plugin__
 
 ```groovy
-import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
 
 plugins {
    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
@@ -80,7 +79,7 @@ compileJpaModelgen {
 }
 
 /* Include only entities to ignore conflicts of Querydsl generated classes usage */
-project.tasks.withType(QuerydlsCompile){ task ->
+compileQuerydsl {
 	task.includes += ['**/*/entity/*.java']
 }
 
