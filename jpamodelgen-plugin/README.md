@@ -2,6 +2,9 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](#copyright-and-license)
 
+:exclamation:IMPORTANT PLUGIN ID CHANGES:exclamation:
+
+It changed from `com.github.iboyko.gradle.plugins.jpamodelgen` to `at.comm_unity.gradle.plugins.jpamodelgen`
 
 ### Description
 
@@ -31,7 +34,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "com.github.iboyko.gradle.plugins.jpamodelgen" version "1.0.0"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
 }
 ```
 
@@ -44,7 +47,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.github.iboyko.gradle.plugins.jpamodelgen:plugin:1.0.0"
+    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.0"
   }
 }
 
@@ -64,17 +67,16 @@ __Use together with querydsl plugin__
 
 ```groovy
 import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
-import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.JpaModelgenCompile
 
 plugins {
-   id "com.github.iboyko.gradle.plugins.jpamodelgen" version "1.0.0"
+   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.3"
 }
 
 
 /* Include only entities to ignore conflicts of JPA Metamodel generated classes usage */
-project.tasks.withType(JpaModelgenCompile){ task ->
-	task.includes += ['**/*/entity/*.java']
+compileJpaModelgen {
+    includes +=  ['**/*/entity/*.java']
 }
 
 /* Include only entities to ignore conflicts of Querydsl generated classes usage */
