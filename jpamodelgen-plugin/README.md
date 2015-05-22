@@ -80,7 +80,7 @@ compileJpaModelgen {
 
 /* Include only entities to ignore conflicts of Querydsl generated classes usage */
 compileQuerydsl {
-	task.includes += ['**/*/entity/*.java']
+	includes += ['**/*/entity/*.java']
 }
 
 compileJava.options.compilerArgs += ["-proc:none"]
