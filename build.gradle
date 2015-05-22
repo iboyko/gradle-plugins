@@ -1,2 +1,5 @@
+allprojects {
+    group = 'at.comm_unity.gradle.plugins'
+}
 
 wrapper { gradleVersion = '2.3' }

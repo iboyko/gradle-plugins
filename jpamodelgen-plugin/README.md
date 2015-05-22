@@ -2,6 +2,9 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](#copyright-and-license)
 
+:exclamation:IMPORTANT PLUGIN ID CHANGES:exclamation:
+
+It changed from `com.github.iboyko.gradle.plugins.jpamodelgen` to `at.comm_unity.gradle.plugins.jpamodelgen`
 
 ### Description
 
@@ -31,7 +34,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "com.github.iboyko.gradle.plugins.jpamodelgen" version "1.0.1"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
 }
 ```
 
@@ -44,7 +47,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.github.iboyko.gradle.plugins.jpamodelgen:plugin:1.0.1"
+    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.0"
   }
 }
 
@@ -66,7 +69,7 @@ __Use together with querydsl plugin__
 import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
 
 plugins {
-   id "com.github.iboyko.gradle.plugins.jpamodelgen" version "1.0.1"
+   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.3"
 }
 

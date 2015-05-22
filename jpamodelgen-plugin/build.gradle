@@ -6,14 +6,13 @@ plugins {
 }
 
 ext {
-    pluginId = "com.github.iboyko.gradle.plugins.jpamodelgen"
+    pluginId = "at.comm_unity.gradle.plugins.jpamodelgen"
     url = 'https://github.com/iboyko/gradle-plugins'
-    pluginTags = ['jpa', 'metamodel', 'hibernate', 'generate']
+    pluginTags = ['jpa', 'metamodel', 'jpametamodel', 'hibernate', 'generate']
 }
 
-group = 'com.github.iboyko.gradle.plugins'
-version = '1.0.1'
-description = 'JPA Metamodel generating plugin.'
+version = '1.1.0'
+description = 'Plugin for JPA Metamodel generation.'
 
 repositories{
     jcenter()
@@ -66,14 +65,8 @@ pluginBundle {
     plugins {
         jpamodelgenPlugin {
 	    id = project.pluginId
-	    displayName = project.description
+	    displayName = "Gradle JPA Metamodel plugin"
         }
-    }
-  
-    mavenCoordinates {
-	groupId = project.group
-	artifactId = project.name
-	version = project.version
     }
 }
 
