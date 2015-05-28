@@ -1,7 +1,7 @@
 # Gradle JPA Modelgen plugin
 
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](#copyright-and-license)
-[![Build Status of develop Branch](https://travis-ci.org/iboyko/gradle-plugins.svg?branch=develop)](https://travis-ci.org/iboyko/gradle-plugins)
+Build Status of develop Branch: [![Build Status of develop Branch](https://travis-ci.org/iboyko/gradle-plugins.svg?branch=develop)](https://travis-ci.org/iboyko/gradle-plugins)
 
 :exclamation:IMPORTANT PLUGIN ID CHANGES:exclamation:
 
