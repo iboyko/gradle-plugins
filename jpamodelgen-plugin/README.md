@@ -91,7 +91,7 @@ compileJpaModelgen {
 }
 
 /* Include only entities to ignore conflicts of Querydsl generated classes usage */
-compileQuerydls {
+compileQuerydl {
     includes += ['**/*/entity/*.java']
 }
 
