@@ -1,15 +1,8 @@
-buildscript{
-    repositories{
-	mavenLocal()
-	jcenter()
-    }
-    dependencies{
-	classpath "at.comm_unity.gradle.plugins:jpamodelgen-plugin:1.1.0"
-    }
-}
 
-apply plugin: 'java'
-apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
+plugins {
+  id "java"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.0"
+}
 
 repositories{
     jcenter()
