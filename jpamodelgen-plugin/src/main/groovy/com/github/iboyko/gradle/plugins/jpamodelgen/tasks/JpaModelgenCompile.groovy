@@ -30,13 +30,16 @@ class JpaModelgenCompile extends JavaCompile {
 	setSource(project.sourceSets.main.java)
 	setClasspath(project.configurations.compile)
 
-	File file = project.file(project.jpaModelgen.jpaModelgenSourcesDir)
-	setDestinationDir(file)
+	project.afterEvaluate {
+	    File file = project.file(project.jpaModelgen.jpaModelgenSourcesDir)
+	    logger.info("Generate to dir: " + file)
+	    setDestinationDir(file)
 
-	options.compilerArgs += [
-	    "-proc:only",
-	    "-processor",
-	    project.extensions.jpaModelgen.processor
-	]
+	    options.compilerArgs += [
+		"-proc:only",
+		"-processor",
+		project.extensions.jpaModelgen.processor
+	    ]
+	}
     }
 }

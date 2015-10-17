@@ -30,8 +30,6 @@ import com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin
  */
 class CleanJpaModelgenSourcesDir extends DefaultTask {
 
-    private static final Logger LOG = Logging.getLogger(CleanJpaModelgenSourcesDir.class)
-
     static final String DESCRIPTION = "Cleans the JpaModelgen sources dir."
 
     CleanJpaModelgenSourcesDir() {
@@ -41,9 +39,10 @@ class CleanJpaModelgenSourcesDir extends DefaultTask {
 
     @TaskAction
     def cleanSourceFolders() {
-	LOG.info("Clean JpaModelgen source dir")
+	logger.info("Clean JpaModelgen source dirs")
 
 	project.sourceSets.jpaModelgen.java.srcDirs.each { dir ->
+	    logger.debug("Deleting dir: " + dir)
 	    if (dir.exists()) {
 		dir.deleteDir()
 	    }
