@@ -30,8 +30,6 @@ import com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin
  */
 class InitJpaModelgenSourcesDir extends DefaultTask {
 
-    private static final Logger LOG = Logging.getLogger(InitJpaModelgenSourcesDir.class)
-
     static final String DESCRIPTION = "Creates the JpaModelgen sources dir."
 
     InitJpaModelgenSourcesDir() {
@@ -41,6 +39,7 @@ class InitJpaModelgenSourcesDir extends DefaultTask {
 
     @TaskAction
     def createSourceFolders() {
+	logger.info("Init JpaModelgen source dir" + project.jpaModelgen.jpaModelgenSourcesDir)
 	project.file(project.jpaModelgen.jpaModelgenSourcesDir).mkdirs()
     }
 }
