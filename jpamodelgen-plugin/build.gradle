@@ -1,7 +1,5 @@
 plugins {
     id 'groovy'
-    id "com.jfrog.bintray" version "0.6"
-    id "nu.studer.plugindev" version "1.0.3"
     id "com.gradle.plugin-publish" version "0.9.0"
 }
 
@@ -23,37 +21,6 @@ dependencies {
     compile localGroovy()
 
     testCompile ("junit:junit:4.12")
-}
-
-
-plugindev {
-    pluginId project.pluginId
-    pluginName 'jpamodelgen-plugin'
-    pluginImplementationClass 'com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin'
-    pluginDescription project.description 
-    pluginLicenses 'Apache-2.0'
-    pluginTags.addAll(project.pluginTags)
-    authorId 'iboyko'
-    authorName 'Illya Boyko'
-    authorEmail 'illya.boyko@gmail.com'
-    projectUrl url
-    projectInceptionYear '2015'
-    done() // do not omit this
-}
-
-bintray {
-    if (!project.hasProperty("BINTRAY_USER")) {
-	project.ext.BINTRAY_USER = ""
-    }
-
-    if (!project.hasProperty("BINTRAY_API_KEY")) {
-	project.ext.BINTRAY_API_KEY = ""
-    }
-
-    user = "$BINTRAY_USER"
-    key = "$BINTRAY_API_KEY"
-
-    pkg.repo = 'gradle-plugins'
 }
 
 pluginBundle {

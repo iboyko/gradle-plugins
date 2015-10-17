@@ -49,32 +49,6 @@ jpaModelgen {
 compileJava.options.compilerArgs += ["-proc:none"]
 ```
 
-__Use via JCenter__
-
-```groovy
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.0"
-  }
-}
-
-apply plugin: "com.github.iboyko.gradle.plugins.jpamodelgen"
-
-// The following closure demonstrates some of the configuration defaults and is not necessary
-jpaModelgen {
-  library = "org.hibernate:hibernate-jpamodelgen:4.3.8.Final"
-  jpaModelgenSourcesDir = "src/jpaModelgen/java"
-}
-
-// Important!!! Following configuration of compile java arguments 
-// should be ALWAYS present when using jpamodelgen plugin.
-compileJava.options.compilerArgs += ["-proc:none"]
-```
-
 __Use together with querydsl plugin__
 
 ```groovy
