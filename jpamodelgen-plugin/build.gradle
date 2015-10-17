@@ -11,7 +11,7 @@ ext {
     pluginTags = ['jpa', 'metamodel', 'jpametamodel', 'hibernate', 'generate']
 }
 
-version = '1.1.0'
+version = '1.1.1'
 description = 'Plugin for JPA Metamodel generation.'
 
 repositories{
