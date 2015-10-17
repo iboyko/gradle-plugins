@@ -24,3 +24,4 @@ bin/
 
 #Project
 /src/jpaModelgen
+/src/generated
