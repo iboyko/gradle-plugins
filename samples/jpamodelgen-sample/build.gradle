@@ -1,11 +1,19 @@
-buildscript{
-    repositories{
-	mavenLocal()
-	jcenter()
-    }
-    dependencies{
-	classpath "at.comm_unity.gradle.plugins:jpamodelgen-plugin:1.1.0"
-    }
+// Real project configuration:
+//buildscript{
+//    repositories{
+//	mavenLocal()
+//	jcenter()
+//    }
+//    dependencies{
+//	classpath "at.comm_unity.gradle.plugins:jpamodelgen-plugin:1.1.1"
+//    }
+//}
+
+// Test project configuration:
+buildscript {
+     dependencies { 
+	 classpath project(':jpamodelgen-plugin')
+     }
 }
 
 apply plugin: 'java'
