@@ -35,7 +35,7 @@ import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.*
  * classes will be generated, so that they can be ignored from SCM commits. Per default, this will
  * be {@link JpaModelgenPluginExtension#DEFAULT_JPAMODELGEN_SOURCES_DIR}.
  * <br/><br/>
- * 
+ *
  *
  * @author Illya Boyko
  * @since 1.0.0
@@ -45,8 +45,9 @@ class JpaModelgenPlugin implements Plugin<Project> {
     public static final String TASK_GROUP = "JpaModelgen tasks"
 
     private static final Logger LOG = Logging.getLogger(JpaModelgenPlugin.class)
+	public static final String CONFIGURATION_NAME = "jpaModelgen"
 
-    @Override
+	@Override
     void apply(final Project project) {
 	LOG.info("Applying JpaModelgen plugin")
 
@@ -55,7 +56,7 @@ class JpaModelgenPlugin implements Plugin<Project> {
 	    return;
 	}
 
-	LOG.info("Applying JpaModelgen plugin")
+	LOG.info("Applying Java plugin")
 
 	// apply core 'java' plugin if not present to make 'sourceSets' available
 	if (!project.plugins.hasPlugin(JavaPlugin.class)) {
@@ -71,6 +72,10 @@ class JpaModelgenPlugin implements Plugin<Project> {
 
 	// make 'clean' depend cleaning jpaModelgen sources
 	project.tasks.clean.dependsOn project.tasks.cleanJpaModelgenSourcesDir
+
+
+	LOG.info("Create configuration 'jpaModelgen'")
+	project.configurations.create(CONFIGURATION_NAME)
 
 	project.task(type: JpaModelgenCompile, "compileJpaModelgen")
 	project.tasks.compileJpaModelgen.dependsOn project.tasks.initJpaModelgenSourcesDir
@@ -90,9 +95,9 @@ class JpaModelgenPlugin implements Plugin<Project> {
     }
 
     private void addLibrary(Project project) {
-	def library = project.extensions.jpaModelgen.library
-	LOG.info("JpaModelgen library: {}", library)
-	project.dependencies { compile library }
+	def library = project.extensions[JpaModelgenPluginExtension.NAME].library
+	LOG.info("Add to configuration 'jpaModelgen' library: {}", library)
+	project.dependencies.add (JpaModelgenPlugin.CONFIGURATION_NAME, library)
     }
 
     private void addSourceSet(Project project, File sourcesDir) {
