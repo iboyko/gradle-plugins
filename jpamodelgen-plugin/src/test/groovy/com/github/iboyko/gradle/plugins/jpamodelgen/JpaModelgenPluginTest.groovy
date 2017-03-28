@@ -57,6 +57,11 @@ class JpaModelgenPluginTest {
     }
 
     @Test
+    public void testPluginRegistersJpaModelgenConfiguration() {
+        assertThat(project.configurations.jpaModelgen, notNullValue())
+    }
+
+    @Test
     public void testPluginRegistersJpaModelgenExtensions() {
 	assertThat(project.extensions.jpaModelgen, notNullValue())
     }
@@ -82,7 +87,7 @@ class JpaModelgenPluginTest {
     public void testAfterEvaluate() {
 	project.evaluate()
 
-	DefaultExternalModuleDependency lib = project.configurations.compile.dependencies
+	DefaultExternalModuleDependency lib = project.configurations.jpaModelgen.dependencies
 		.getAt(0) as DefaultExternalModuleDependency
 
 	String id = lib.group + ":" + lib.name + ":" + lib.version
