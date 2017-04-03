@@ -35,7 +35,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.2"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
 }
 
 // The following closure demonstrates some of the configuration defaults and is not necessary.
@@ -54,7 +54,7 @@ __Use together with querydsl plugin__
 ```groovy
 
 plugins {
-   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.2"
+   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.4"
 }
 
