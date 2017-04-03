@@ -43,9 +43,6 @@ jpaModelgen {
   jpaModelgenSourcesDir = "src/jpaModelgen/java"
 }
 
-// Important!!! Following configuration of compile java arguments 
-// should be ALWAYS present when using jpamodelgen plugin.
-compileJava.options.compilerArgs += ["-proc:none"]
 ```
 
 __Use via JCenter__
@@ -69,9 +66,6 @@ jpaModelgen {
   jpaModelgenSourcesDir = "src/jpaModelgen/java"
 }
 
-// Important!!! Following configuration of compile java arguments 
-// should be ALWAYS present when using jpamodelgen plugin.
-compileJava.options.compilerArgs += ["-proc:none"]
 ```
 
 __Use together with querydsl plugin__
@@ -94,8 +88,6 @@ compileJpaModelgen {
 compileQuerydsl {
     includes += ['**/*/entity/*.java']
 }
-
-compileJava.options.compilerArgs += ["-proc:none"]
 
 ```
 
