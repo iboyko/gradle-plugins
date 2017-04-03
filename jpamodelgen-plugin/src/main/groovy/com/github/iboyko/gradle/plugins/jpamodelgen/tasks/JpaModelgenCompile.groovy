@@ -17,6 +17,8 @@ package com.github.iboyko.gradle.plugins.jpamodelgen.tasks;
 
 import org.gradle.api.tasks.compile.JavaCompile;
 
+import com.github.iboyko.gradle.plugins.jpamodelgen.JpaModelgenPlugin
+
 /**
  * Compiles the Metamodel using jpaModelgen annotation processors supplied by the jpaModelgen extension configuration.
  * 
@@ -24,8 +26,11 @@ import org.gradle.api.tasks.compile.JavaCompile;
  * @since 1.0.0
  */
 class JpaModelgenCompile extends JavaCompile {
-
+	static final String DESCRIPTION = "Generated JPA Modelgen Java classes."
     JpaModelgenCompile() {
+
+	this.group = JpaModelgenPlugin.TASK_GROUP
+	this.description = DESCRIPTION
 
 	setSource(project.sourceSets.main.java)
 	setClasspath(project.configurations.compile + project.configurations.jpaModelgen)
