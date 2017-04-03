@@ -39,7 +39,7 @@ class InitJpaModelgenSourcesDir extends DefaultTask {
 
     @TaskAction
     def createSourceFolders() {
-	logger.info("Init JpaModelgen source dir" + project.jpaModelgen.jpaModelgenSourcesDir)
+	logger.info("Init JpaModelgen source dir " + project.jpaModelgen.jpaModelgenSourcesDir)
 	project.file(project.jpaModelgen.jpaModelgenSourcesDir).mkdirs()
     }
 }
