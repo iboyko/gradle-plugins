@@ -33,7 +33,7 @@ class JpaModelgenCompile extends JavaCompile {
 	this.description = DESCRIPTION
 
 	setSource(project.sourceSets.main.java)
-	setClasspath(project.configurations.compile + project.configurations.jpaModelgen)
+	setClasspath(project.configurations.compileClasspath + project.configurations.jpaModelgen)
 
 	project.afterEvaluate {
 	    File file = project.file(project.jpaModelgen.jpaModelgenSourcesDir)
