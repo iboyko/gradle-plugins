@@ -34,7 +34,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
 }
 
 // The following closure demonstrates some of the configuration defaults and is not necessary.
@@ -54,7 +54,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.3"
+    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.4"
   }
 }
 
@@ -74,7 +74,7 @@ __Use together with querydsl plugin__
 import com.ewerk.gradle.plugins.tasks.QuerydlsCompile
 
 plugins {
-   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
+   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.4"
 }
 
