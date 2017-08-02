@@ -2,7 +2,7 @@ plugins {
     id 'groovy'
     id "com.jfrog.bintray" version "1.7.3"
     id "nu.studer.plugindev" version "1.0.3"
-    id "com.gradle.plugin-publish" version "0.9.0"
+    id "com.gradle.plugin-publish" version "0.9.7"
 }
 
 ext {
