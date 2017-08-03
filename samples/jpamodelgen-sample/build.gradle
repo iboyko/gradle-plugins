@@ -1,7 +1,7 @@
 //Real project configuration:
 plugins {
     id "java"
-    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.1"
+    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
 }
 
 ////Local test project configuration:
@@ -13,6 +13,7 @@ plugins {
 //apply plugin: 'java'
 //apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
 ////end: Local test project configuration
+//		classpath files('../../jpamodelgen-plugin/build/libs/jpamodelgen-plugin-1.1.4.jar')
 
 repositories{
     jcenter()
@@ -29,4 +30,5 @@ compileJpaModelgen {
 
 dependencies {
     compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
+    compileOnly 'org.projectlombok:lombok:1.16.18'
 }

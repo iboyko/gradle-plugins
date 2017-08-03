@@ -35,7 +35,7 @@ __Use via Gradle plugin portal__
 
 ```groovy
 plugins {
-  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
 }
 
 // The following closure demonstrates some of the configuration defaults and is not necessary.
@@ -44,9 +44,6 @@ jpaModelgen {
   jpaModelgenSourcesDir = "src/jpaModelgen/java"
 }
 
-// Important!!! Following configuration of compile java arguments 
-// should be ALWAYS present when using jpamodelgen plugin.
-compileJava.options.compilerArgs += ["-proc:none"]
 ```
 
 __Use together with querydsl plugin__
@@ -54,7 +51,7 @@ __Use together with querydsl plugin__
 ```groovy
 
 plugins {
-   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.3"
+   id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
    id "com.ewerk.gradle.plugins.querydsl" version "1.0.4"
 }
 
@@ -68,8 +65,6 @@ compileJpaModelgen {
 compileQuerydsl {
 	includes += ['**/*/entity/*.java']
 }
-
-compileJava.options.compilerArgs += ["-proc:none"]
 
 ```
 
