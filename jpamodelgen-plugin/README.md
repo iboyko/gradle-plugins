@@ -54,7 +54,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "at.comm_unity.gradle.plugins.jpamodelgen:plugin:1.1.4"
+    classpath "at.comm_unity.gradle.plugins:jpamodelgen-plugin:1.1.4"
   }
 }
 
