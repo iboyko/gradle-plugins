@@ -1,11 +1,7 @@
 //Real project configuration:
 plugins {
     id "java"
-    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.1"
-}
-// Real project configuration:
-plugins {
-  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
+    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
 }
 
 // Test project configuration:
@@ -14,9 +10,8 @@ plugins {
 //		classpath files('../../jpamodelgen-plugin/build/libs/jpamodelgen-plugin-1.1.4.jar')
 //     }
 //}
-
-apply plugin: 'java'
-apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
+//apply plugin: 'java'
+//apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
 
 repositories{
     jcenter()
