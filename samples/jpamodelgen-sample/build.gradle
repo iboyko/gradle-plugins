@@ -1,20 +1,14 @@
 // Real project configuration:
-//buildscript{
-//    repositories{
-//	mavenLocal()
-//	jcenter()
-//    }
-//    dependencies{
-//	classpath "at.comm_unity.gradle.plugins:jpamodelgen-plugin:1.1.1"
-//    }
-//}
+plugins {
+  id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
+}
 
 // Test project configuration:
-buildscript {
-     dependencies { 
-		classpath files('../../jpamodelgen-plugin/build/libs/jpamodelgen-plugin-1.1.4.jar')
-     }
-}
+//buildscript {
+//     dependencies {
+//		classpath files('../../jpamodelgen-plugin/build/libs/jpamodelgen-plugin-1.1.4.jar')
+//     }
+//}
 
 apply plugin: 'java'
 apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
@@ -28,11 +22,18 @@ jpaModelgen{
 }
 
 compileJpaModelgen {
-    includes += ['**/entities/*.java']
+    includes += ['**/entities/*.java', '**/entity/*.java']
 }
 
 
 dependencies {
     compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
     compileOnly 'org.projectlombok:lombok:1.16.18'
+
+    testCompile 'junit:junit:4.12'
+}
+
+
+wrapper {
+  gradleVersion = "4.3"
 }
