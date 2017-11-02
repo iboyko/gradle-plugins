@@ -42,78 +42,78 @@ import com.github.iboyko.gradle.plugins.jpamodelgen.tasks.*
  */
 class JpaModelgenPlugin implements Plugin<Project> {
 
-    public static final String TASK_GROUP = "JpaModelgen tasks"
+	public static final String TASK_GROUP = "JpaModelgen tasks"
 
-    private static final Logger LOG = Logging.getLogger(JpaModelgenPlugin.class)
+	private static final Logger LOG = Logging.getLogger(JpaModelgenPlugin.class)
 	public static final String CONFIGURATION_NAME = "jpaModelgen"
 
 	@Override
-    void apply(final Project project) {
-	LOG.info("Applying JpaModelgen plugin")
+	void apply(final Project project) {
+		LOG.info("Applying JpaModelgen plugin")
+	
+		// do nothing if plugin is already applied
+		if (project.plugins.hasPlugin(JpaModelgenPlugin.class)) {
+			return;
+		}
+	
+		LOG.info("Applying Java plugin")
 
-	// do nothing if plugin is already applied
-	if (project.plugins.hasPlugin(JpaModelgenPlugin.class)) {
-	    return;
+		// apply core 'java' plugin if not present to make 'sourceSets' available
+		if (!project.plugins.hasPlugin(JavaPlugin.class)) {
+			project.plugins.apply(JavaPlugin.class)
+		}
+	
+		// add 'JpaModelgen' DSL extension
+		project.extensions.create(JpaModelgenPluginExtension.NAME, JpaModelgenPluginExtension)
+	
+		// add new tasks for creating/cleaning the auto-value sources dir
+		project.task(type: CleanJpaModelgenSourcesDir, "cleanJpaModelgenSourcesDir")
+		project.task(type: InitJpaModelgenSourcesDir, "initJpaModelgenSourcesDir")
+	
+		// make 'clean' depend cleaning jpaModelgen sources
+		project.tasks.clean.dependsOn project.tasks.cleanJpaModelgenSourcesDir
+	
+
+		LOG.info("Create configuration 'jpaModelgen'")
+		project.configurations.create(CONFIGURATION_NAME)
+	
+		project.task(type: JpaModelgenCompile, "compileJpaModelgen")
+		project.tasks.compileJpaModelgen.dependsOn project.tasks.initJpaModelgenSourcesDir
+		project.tasks.compileJava.dependsOn project.tasks.compileJpaModelgen
+	
+		project.afterEvaluate {
+			File jpaModelgenSourcesDir = jpaModelgenSourcesDir(project)
+	
+			addLibrary(project)
+			addSourceSet(project, jpaModelgenSourcesDir)
+			registerSourceAtCompileJava(project, jpaModelgenSourcesDir)
+		}
 	}
 
-	LOG.info("Applying Java plugin")
-
-	// apply core 'java' plugin if not present to make 'sourceSets' available
-	if (!project.plugins.hasPlugin(JavaPlugin.class)) {
-	    project.plugins.apply(JavaPlugin.class)
+	private void registerSourceAtCompileJava(Project project, File jpaModelgenSourcesDir) {
+		project.compileJava { source jpaModelgenSourcesDir }
 	}
 
-	// add 'JpaModelgen' DSL extension
-	project.extensions.create(JpaModelgenPluginExtension.NAME, JpaModelgenPluginExtension)
-
-	// add new tasks for creating/cleaning the auto-value sources dir
-	project.task(type: CleanJpaModelgenSourcesDir, "cleanJpaModelgenSourcesDir")
-	project.task(type: InitJpaModelgenSourcesDir, "initJpaModelgenSourcesDir")
-
-	// make 'clean' depend cleaning jpaModelgen sources
-	project.tasks.clean.dependsOn project.tasks.cleanJpaModelgenSourcesDir
-
-
-	LOG.info("Create configuration 'jpaModelgen'")
-	project.configurations.create(CONFIGURATION_NAME)
-
-	project.task(type: JpaModelgenCompile, "compileJpaModelgen")
-	project.tasks.compileJpaModelgen.dependsOn project.tasks.initJpaModelgenSourcesDir
-	project.tasks.compileJava.dependsOn project.tasks.compileJpaModelgen
-
-	project.afterEvaluate {
-	    File jpaModelgenSourcesDir = jpaModelgenSourcesDir(project)
-
-	    addLibrary(project)
-	    addSourceSet(project, jpaModelgenSourcesDir)
-	    registerSourceAtCompileJava(project, jpaModelgenSourcesDir)
+	private void addLibrary(Project project) {
+		def library = project.extensions[JpaModelgenPluginExtension.NAME].library
+		LOG.info("Add to configuration 'jpaModelgen' library: {}", library)
+		project.dependencies.add (JpaModelgenPlugin.CONFIGURATION_NAME, library)
 	}
-    }
 
-    private void registerSourceAtCompileJava(Project project, File jpaModelgenSourcesDir) {
-	project.compileJava { source jpaModelgenSourcesDir }
-    }
+	private void addSourceSet(Project project, File sourcesDir) {
+		LOG.info("Create source set 'jpaModelgen'.");
 
-    private void addLibrary(Project project) {
-	def library = project.extensions[JpaModelgenPluginExtension.NAME].library
-	LOG.info("Add to configuration 'jpaModelgen' library: {}", library)
-	project.dependencies.add (JpaModelgenPlugin.CONFIGURATION_NAME, library)
-    }
-
-    private void addSourceSet(Project project, File sourcesDir) {
-	LOG.info("Create source set 'jpaModelgen'.");
-
-	project.sourceSets {
-	    jpaModelgen {
-		java.srcDirs = [sourcesDir]
-	    }
+		project.sourceSets {
+			jpaModelgen {
+				java.srcDirs = [sourcesDir]
+			}
+		}
 	}
-    }
 
-    private static File jpaModelgenSourcesDir(Project project) {
-	String path = project.extensions.jpaModelgen.jpaModelgenSourcesDir
-	File jpaModelgenSourcesDir = project.file(path)
-	LOG.info("JpaModelgen sources dir: {}", jpaModelgenSourcesDir.absolutePath);
-	return jpaModelgenSourcesDir
-    }
+	private static File jpaModelgenSourcesDir(Project project) {
+		String path = project.extensions.jpaModelgen.jpaModelgenSourcesDir
+		File jpaModelgenSourcesDir = project.file(path)
+		LOG.info("JpaModelgen sources dir: {}", jpaModelgenSourcesDir.absolutePath);
+		return jpaModelgenSourcesDir
+	}
 }
