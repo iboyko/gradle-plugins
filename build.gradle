@@ -2,4 +2,4 @@ allprojects {
     group = 'at.comm_unity.gradle.plugins'
 }
 
-wrapper { gradleVersion = '4.3' }
+wrapper { gradleVersion = '4.7' }

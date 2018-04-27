@@ -1,26 +1,43 @@
+
 plugins {
+    id 'java-gradle-plugin'
     id 'groovy'
+	id 'eclipse'
     id "com.gradle.plugin-publish" version "0.9.9"
 }
 
+
+apply from: "$projectDir/gradle/functional-test.gradle"
+
+	
 ext {
     pluginId = "at.comm_unity.gradle.plugins.jpamodelgen"
     url = 'https://github.com/iboyko/gradle-plugins'
     pluginTags = ['jpa', 'metamodel', 'jpametamodel', 'hibernate', 'generate']
 }
 
-version = '1.1.4'
+version = '2.0.0'
 description = 'Plugin for JPA Metamodel generation.'
+
 
 repositories{
     jcenter()
 }
 
 dependencies {
-    compile gradleApi()
-    compile localGroovy() 
+    compileOnly gradleApi()
+    testCompile gradleTestKit()
+    testCompile 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.6.2'
+}
 
-    testCompile ("junit:junit:4.12")
+gradlePlugin {
+    plugins {
+        jpaModelgenPlugin {
+            id = "at.comm_unity.gradle.plugins.jpamodelgen"
+            implementationClass = 'at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin'
+        }
+	}
 }
 
 pluginBundle {
