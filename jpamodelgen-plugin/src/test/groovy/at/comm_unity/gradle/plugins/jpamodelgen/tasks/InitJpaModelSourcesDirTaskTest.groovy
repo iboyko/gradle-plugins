@@ -1,4 +1,4 @@
-package at.comm_unity.gradle.plugins.jpamodelgen.tasks;
+package at.comm_unity.gradle.plugins.jpamodelgen.tasks
 
 import static org.assertj.core.api.Assertions.assertThat
 import static org.hamcrest.CoreMatchers.equalTo
@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.notNullValue
 import org.assertj.core.api.Assertions
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
-import org.junit.Test;
+import org.junit.Test
 
 import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin
 
@@ -17,35 +17,35 @@ import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin
  */
 class InitJpaModelSourcesDirTaskTest {
 
-    private Project project;
+    private Project project
 
-    private InitJpaModelSourcesDirTask initTask;
+    private InitJpaModelSourcesDirTask initTask
 
 
-    public InitJpaModelSourcesDirTaskTest() {
-	project = ProjectBuilder.builder().build()
-	project.plugins.apply(JpaModelgenPlugin.class)
-	project.evaluate()
+    InitJpaModelSourcesDirTaskTest() {
+        project = ProjectBuilder.builder().build()
+        project.plugins.apply(JpaModelgenPlugin.class)
+        project.evaluate()
 
-	initTask = project.tasks.initJpaModelSourcesDir as InitJpaModelSourcesDirTask
+        initTask = project.tasks.initJpaModelSourcesDir as InitJpaModelSourcesDirTask
     }
 
     @Test
     void testCreateSourceFolders() {
-	initTask.perform()
-	//assertThat(project.sourceSets.jpaModelgen, notNullValue())
+        initTask.perform()
+        //assertThat(project.sourceSets.jpaModelgen, notNullValue())
 
-	//File javaDir = project.sourceSets.jpaModelgen.java.srcDirs.first() as File
-	//assertThat(javaDir.name, equalTo("java"))
+        //File javaDir = project.sourceSets.jpaModelgen.java.srcDirs.first() as File
+        //assertThat(javaDir.name, equalTo("java"))
     }
 
     @Test
-    public void testGroup() {
-	assertThat(initTask.group).isEqualTo(JpaModelgenPlugin.TASK_GROUP)
+    void testGroup() {
+        assertThat(initTask.group).isEqualTo(JpaModelgenPlugin.TASK_GROUP)
     }
 
     @Test
-    public void testDescription() {
-	assertThat(initTask.description).isEqualTo("Creates the JpaModelgen sources dir for SourceSet main")
+    void testDescription() {
+        assertThat(initTask.description).isEqualTo("Creates the JpaModelgen sources dir for SourceSet main")
     }
 }

@@ -30,14 +30,14 @@ import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
 public class CleanJpaModelSourcesDirTask extends SourceDirTask {
 
     public CleanJpaModelSourcesDirTask() {
-	setGroup(JpaModelgenPlugin.TASK_GROUP);
+        setGroup(JpaModelgenPlugin.TASK_GROUP);
     }
 
     @Override
     protected void performWithSourceDir(File dir) {
-	getLogger().info("Clean JpaModel source dir " + dir);
-	if (dir.exists()) {
-	    GFileUtils.cleanDirectory(dir);
-	}
+        getLogger().info("Clean JpaModel source dir " + dir);
+        if (dir.exists()) {
+            GFileUtils.cleanDirectory(dir);
+        }
     }
 }

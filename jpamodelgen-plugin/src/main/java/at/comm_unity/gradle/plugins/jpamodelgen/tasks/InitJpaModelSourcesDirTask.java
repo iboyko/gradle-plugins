@@ -11,15 +11,15 @@ import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
  * @since 2.0.0
  */
 public class InitJpaModelSourcesDirTask extends SourceDirTask {
-    
+
 
     public InitJpaModelSourcesDirTask() {
-	setGroup(JpaModelgenPlugin.TASK_GROUP);
+        setGroup(JpaModelgenPlugin.TASK_GROUP);
     }
 
     @Override
     protected void performWithSourceDir(File dir) {
-	getLogger().info("Init JpaModel source dir " + dir);
-	dir.mkdirs();
+        getLogger().info("Init JpaModel source dir " + dir);
+        dir.mkdirs();
     }
 }

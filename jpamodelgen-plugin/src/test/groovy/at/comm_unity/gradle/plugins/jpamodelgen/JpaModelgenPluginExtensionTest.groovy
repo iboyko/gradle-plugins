@@ -28,13 +28,13 @@ class JpaModelgenPluginExtensionTest {
 
     private JpaModelgenPluginExtension extension;
 
-    public JpaModelgenPluginExtensionTest() {
-	extension = new JpaModelgenPluginExtension()
+    JpaModelgenPluginExtensionTest() {
+        extension = new JpaModelgenPluginExtension()
     }
 
     @Test
-    public void testDefaultLibraryIsSet() {
-	def defaultLibrary = JpaModelgenPluginExtension.DEFAULT_LIBRARY
-	assertThat(extension.library).isEqualTo(defaultLibrary)
+    void testDefaultLibraryIsSet() {
+        def defaultLibrary = JpaModelgenPluginExtension.DEFAULT_LIBRARY
+        assertThat(extension.library).isEqualTo(defaultLibrary)
     }
 }

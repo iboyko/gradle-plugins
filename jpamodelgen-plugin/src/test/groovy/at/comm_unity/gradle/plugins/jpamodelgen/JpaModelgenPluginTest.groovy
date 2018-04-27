@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package at.comm_unity.gradle.plugins.jpamodelgen;
+package at.comm_unity.gradle.plugins.jpamodelgen
 
 import static org.assertj.core.api.Assertions.assertThat
 import static org.hamcrest.CoreMatchers.*
@@ -35,80 +35,79 @@ import at.comm_unity.gradle.plugins.jpamodelgen.tasks.JpaModelgenTask
  */
 class JpaModelgenPluginTest {
 
-    private Project project;
+    private Project project
 
-    public JpaModelgenPluginTest() {
-	project = ProjectBuilder.builder().build()
-	project.plugins.apply(JpaModelgenPlugin.class)
+    JpaModelgenPluginTest() {
+        project = ProjectBuilder.builder().build()
+        project.plugins.apply(JpaModelgenPlugin.class)
     }
 
     @Test
-    public void testPluginAppliesItself() {
-	assertThat(project.plugins.hasPlugin(JpaModelgenPlugin.class)).is(true)
+    void testPluginAppliesItself() {
+        assertThat(project.plugins.hasPlugin(JpaModelgenPlugin.class)).is(true)
     }
 
     @Test
-    public void testReApplyDoesNotFail() {
-	project.plugins.apply(JpaModelgenPlugin.class)
-	assertThat(project.plugins.hasPlugin(JpaModelgenPlugin.class)).is(true)
+    void testReApplyDoesNotFail() {
+        project.plugins.apply(JpaModelgenPlugin.class)
+        assertThat(project.plugins.hasPlugin(JpaModelgenPlugin.class)).is(true)
     }
 
     @Test
-    public void testPluginAppliesJavaPlugin() {
-	assertThat(project.plugins.hasPlugin(JavaPlugin.class)).is(true)
+    void testPluginAppliesJavaPlugin() {
+        assertThat(project.plugins.hasPlugin(JavaPlugin.class)).is(true)
     }
 
     @Test
-    public void testPluginRegistersJpaModelgenConfiguration() {
-	assertThat(project.configurations.jpaModelgen).isNotNull()
+    void testPluginRegistersJpaModelgenConfiguration() {
+        assertThat(project.configurations.jpaModelgen).isNotNull()
     }
 
     @Test
-    public void testPluginRegistersJpaModelgenExtensions() {
-	assertThat(project.extensions.jpaModelgen).isNotNull()
+    void testPluginRegistersJpaModelgenExtensions() {
+        assertThat(project.extensions.jpaModelgen).isNotNull()
     }
 
 
     @Test
-    public void testPluginProcessorFromJpaModelgenExtensions() {
-	assertThat(project.extensions.jpaModelgen.processor).isNotNull()
+    void testPluginProcessorFromJpaModelgenExtensions() {
+        assertThat(project.extensions.jpaModelgen.processor).isNotNull()
     }
 
     @Test
-    public void testPluginTasksAreAvailable() {
-	assertThat(project.tasks.initJpaModelSourcesDir).isNotNull()
-	assertThat(project.tasks.cleanJpaModelSourcesDir).isNotNull()
+    void testPluginTasksAreAvailable() {
+        assertThat(project.tasks.initJpaModelSourcesDir).isNotNull()
+        assertThat(project.tasks.cleanJpaModelSourcesDir).isNotNull()
     }
 
     @Test
-    public void testTaskTypes() {
-	assertThat(project.tasks.initJpaModelSourcesDir).isInstanceOf(InitJpaModelSourcesDirTask.class)
-	assertThat(project.tasks.cleanJpaModelSourcesDir).isInstanceOf(CleanJpaModelSourcesDirTask.class)
+    void testTaskTypes() {
+        assertThat(project.tasks.initJpaModelSourcesDir).isInstanceOf(InitJpaModelSourcesDirTask.class)
+        assertThat(project.tasks.cleanJpaModelSourcesDir).isInstanceOf(CleanJpaModelSourcesDirTask.class)
     }
 
     @Test
-    public void testAfterEvaluate() {
+    void testAfterEvaluate() {
 
-	project.evaluate()
+        project.evaluate()
 
+        // TODO: dest default dependencies
+        //	DefaultExternalModuleDependency lib = project.configurations.jpaModelgen.dependencies
+        //			.getAt(0) as DefaultExternalModuleDependency
+        //
+        //	println(lib)
+        //	String id = lib.group + ":" + lib.name + ":" + lib.version
+        //
+        //	assertThat(id).isEqualTo(JpaModelgenPluginExtension.DEFAULT_LIBRARY)
 
-	// TODO: dest default dependencies
-	//	DefaultExternalModuleDependency lib = project.configurations.jpaModelgen.dependencies
-	//			.getAt(0) as DefaultExternalModuleDependency
-	//
-	//	println(lib)
-	//	String id = lib.group + ":" + lib.name + ":" + lib.version
-	//
-	//	assertThat(id).isEqualTo(JpaModelgenPluginExtension.DEFAULT_LIBRARY)
+        assertThat(project.tasks.generateJpaModel).isNotNull()
+        assertThat(project.tasks.generateJpaModel).isInstanceOf(JpaModelgenTask.class)
+        assertThat(project.tasks.generateJpaModel.processor).isNotNull()
+        assertThat(project.tasks.generateJpaModel.processor.get())
+                .isEqualTo(JpaModelgenPluginExtension.DEFAULT_PROCESSOR)
 
-	assertThat(project.tasks.generateJpaModel).isNotNull()
-	assertThat(project.tasks.generateJpaModel).isInstanceOf(JpaModelgenTask.class)
-	assertThat(project.tasks.generateJpaModel.processor).isNotNull()
-	assertThat(project.tasks.generateJpaModel.processor.get())
-		.isEqualTo( JpaModelgenPluginExtension.DEFAULT_PROCESSOR)
-
-	assertThat(project.tasks.generateJpaModel.options.compilerArgs).contains(
-		"-proc:only", "-processor", JpaModelgenPluginExtension.DEFAULT_PROCESSOR)
+        assertThat(project.tasks.generateJpaModel.options.compilerArgs).contains(
+                "-proc:only", "-processor", JpaModelgenPluginExtension.DEFAULT_PROCESSOR)
 
     }
 }
