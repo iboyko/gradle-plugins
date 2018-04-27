@@ -21,3 +21,8 @@ build/
 .classpath
 .settings
 bin/
+
+
+#Idea
+.idea
+out/
