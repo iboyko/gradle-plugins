@@ -33,12 +33,6 @@ class JpaModelgenPluginExtensionTest {
     }
 
     @Test
-    public void testDefaultGeneratedSourcesDirIsSet() {
-	String defaultDir = JpaModelgenPluginExtension.DEFAULT_JPAMODELGEN_SOURCES_DIR
-	assertThat(extension.jpaModelgenSourcesDir as File).isEqualTo(new File(defaultDir))
-    }
-
-    @Test
     public void testDefaultLibraryIsSet() {
 	def defaultLibrary = JpaModelgenPluginExtension.DEFAULT_LIBRARY
 	assertThat(extension.library).isEqualTo(defaultLibrary)
