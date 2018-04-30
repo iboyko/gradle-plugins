@@ -9,8 +9,8 @@ import com.github.iboyko.samples.jpamodelgen.entity.DomainObject2_;
 
 public class DomainObject2Test {
     @Test
-    public void testMetadata() throws Exception{
-	Field idField = DomainObject2_.class.getDeclaredField("id");
-	assertNotNull(idField);
+    public void testMetadata() throws Exception {
+        Field idField = DomainObject2_.class.getDeclaredField("id");
+        assertNotNull(idField);
     }
 }
