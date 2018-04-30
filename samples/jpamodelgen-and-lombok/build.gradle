@@ -8,13 +8,10 @@ repositories{
     jcenter()
 }
 
-
-jpaModelgen {
-    sourcesRootDir = "src/generated"
-}
-
 dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.2.17.Final'
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+
     testCompile 'junit:junit:4.12'
 }
 

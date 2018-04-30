@@ -79,3 +79,4 @@ generateJpaModel {
 __Sample projects__
 
 * [Appling jpamodelgen](https://github.com/iboyko/gradle-plugins/tree/master/samples/jpamodelgen-sample)
+* [jpamodelgen and lombok](https://github.com/iboyko/gradle-plugins/tree/master/samples/jpamodelgen-and-lombok)
