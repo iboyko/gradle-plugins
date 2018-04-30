@@ -9,6 +9,8 @@ public class JpaModelgenPluginExtension {
 
     private String processor = DEFAULT_PROCESSOR;
 
+    private String sourcesRootDir;
+
     public String getLibrary() {
         return library;
     }
@@ -25,4 +27,12 @@ public class JpaModelgenPluginExtension {
         this.processor = processor;
     }
 
+
+    public String getSourcesRootDir() {
+        return sourcesRootDir;
+    }
+
+    public void setSourcesRootDir(String sourcesRootDir) {
+        this.sourcesRootDir = sourcesRootDir;
+    }
 }

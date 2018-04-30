@@ -1,6 +1,7 @@
 package at.comm_unity.gradle.plugins.jpamodelgen;
 
 import java.io.File;
+import java.nio.file.Path;
 
 import org.gradle.api.Action;
 import org.gradle.api.Plugin;
@@ -29,11 +30,6 @@ public class JpaModelgenPlugin implements Plugin<Project> {
 
     @Override
     public void apply(final Project project) {
-        // NamedDomainObjectContainer<JpaModelgenPluginExtension> jpaModelgenContainer =
-        // project
-        // .container(JpaModelgenPluginExtension.class);
-        // project.getExtensions().add(JpaModelgenPluginExtension.NAME,
-        // jpaModelgenContainer);
 
         if (project.getPluginManager().findPlugin("java") == null) {
             project.getPluginManager().apply(JavaPlugin.class);
@@ -58,19 +54,18 @@ public class JpaModelgenPlugin implements Plugin<Project> {
             // for each source set we will:
             // 1) Define generation folder name
 
-            final String outputDirectoryName;
-            // TODO: configurable source location.
-            // if (extension.getJpaModelgenSourcesDir() == null
-            // || extension.getJpaModelgenSourcesDir().trim().isEmpty()) {
-            outputDirectoryName = project.getBuildDir() + "/generated-src/" + CONFIGURATION_NAME + "/"
-                    + sourceSet.getName();
-            // } else {
-            // sourceSet.get
-            // outputDirectoryName = project.getProjectDir() + "/" +
-            // extension.getJpaModelgenSourcesDir();
-            // }
+            Path outputDirectoryPath;
+            if (extension.getSourcesRootDir() == null
+                    || extension.getSourcesRootDir().trim().isEmpty()) {
+                outputDirectoryPath = project.getBuildDir().toPath().resolve("generated-src").resolve(CONFIGURATION_NAME);
+            } else {
+                outputDirectoryPath = project.getProjectDir().toPath().resolve(extension.getSourcesRootDir());
+            }
+            // output is always sourceset specific
+            outputDirectoryPath = outputDirectoryPath.resolve(sourceSet.getName());
 
-            final File outputDir = new File(outputDirectoryName);
+            final File outputDir = outputDirectoryPath.toFile();
+
             // 2) Create clean task
             CleanJpaModelSourcesDirTask cleanJpaModelgenSourcesDirTask = project.getTasks().create(
                     sourceSet.getTaskName("clean", "JpaModelSourcesDir"), CleanJpaModelSourcesDirTask.class,
@@ -102,11 +97,6 @@ public class JpaModelgenPlugin implements Plugin<Project> {
             // specify)
             jpaModelgenTask.setSource(sourceSet.getAllSource());
             jpaModelgenTask.setClasspath(new UnionFileCollection(sourceSet.getCompileClasspath(), config));
-
-            // String path = extension.getJpaModelgenSourcesDir();
-            // File jpaModelgenSourcesDir = project.file(path);
-            // LOG.info("JpaModelgen sources dir: {}",
-            // jpaModelgenSourcesDir.getAbsolutePath());
 
             // 6) Set up the JpaModelgen output directory (adding to javac inputs!)
             sourceSet.getJava().srcDir(outputDir);
