@@ -54,8 +54,8 @@ plugins {
 
 // The following closure demonstrates some of the configuration defaults and is not necessary.
 jpaModelgen {
-  library = "org.hibernate:hibernate-jpamodelgen:4.3.8.Final"
-  sourcesRootDir = "src/generated"
+  library = "org.hibernate:hibernate-jpamodelgen:5.2.17.Final"
+  sourcesRootDir = "build/generated-src/jpaModelgen"
 }
 
 ```
