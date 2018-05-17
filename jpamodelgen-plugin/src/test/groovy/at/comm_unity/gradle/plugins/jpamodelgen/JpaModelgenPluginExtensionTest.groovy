@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package at.comm_unity.gradle.plugins.jpamodelgen;
-
-import static org.assertj.core.api.Assertions.assertThat
+package at.comm_unity.gradle.plugins.jpamodelgen
 
 import org.junit.Test
+
+import static org.assertj.core.api.Assertions.assertThat
 
 /**
  * @author Illya Graf-Boyko

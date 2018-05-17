@@ -15,19 +15,15 @@
  */
 package at.comm_unity.gradle.plugins.jpamodelgen
 
-import static org.assertj.core.api.Assertions.assertThat
-import static org.hamcrest.CoreMatchers.*
-
-import org.gradle.api.Project
-import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDependency
-import org.gradle.api.plugins.JavaPlugin
-import org.gradle.api.provider.Property
-import org.gradle.testfixtures.ProjectBuilder
-import org.junit.Test
-
 import at.comm_unity.gradle.plugins.jpamodelgen.tasks.CleanJpaModelSourcesDirTask
 import at.comm_unity.gradle.plugins.jpamodelgen.tasks.InitJpaModelSourcesDirTask
 import at.comm_unity.gradle.plugins.jpamodelgen.tasks.JpaModelgenTask
+import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPlugin
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Test
+
+import static org.assertj.core.api.Assertions.assertThat
 
 /**
  * @author Illya Graf-Boyko

@@ -15,11 +15,10 @@
  */
 package at.comm_unity.gradle.plugins.jpamodelgen.tasks;
 
-import java.io.File;
-
+import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
 import org.gradle.util.GFileUtils;
 
-import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
+import java.io.File;
 
 /**
  * This task is responsible for purging the 'jpaModelgen' sources dir.

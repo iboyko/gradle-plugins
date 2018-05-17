@@ -1,8 +1,8 @@
 package at.comm_unity.gradle.plugins.jpamodelgen.tasks;
 
-import java.io.File;
-
 import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
+
+import java.io.File;
 
 /**
  * This task is responsible for creation of the 'jpaModelgen' sources dir.

@@ -1,14 +1,13 @@
 package at.comm_unity.gradle.plugins.jpamodelgen.tasks;
 
-import java.util.Arrays;
-
+import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
 import org.gradle.api.Action;
 import org.gradle.api.Project;
 import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.compile.JavaCompile;
 
-import at.comm_unity.gradle.plugins.jpamodelgen.JpaModelgenPlugin;
+import java.util.Arrays;
 
 public class JpaModelgenTask extends JavaCompile {
 
