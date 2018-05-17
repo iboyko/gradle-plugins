@@ -1,20 +1,10 @@
 package at.comm_unity.gradle.plugins.jpamodelgen
 
-
-import static org.gradle.testkit.runner.TaskOutcome.*
-
-import org.gradle.testkit.runner.GradleRunner
-import org.junit.Rule
-import org.junit.rules.TemporaryFolder
-
 import groovy.util.logging.Slf4j
-import java.nio.file.FileVisitResult
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
-import java.nio.file.SimpleFileVisitor
-import java.nio.file.attribute.BasicFileAttributes
-import spock.lang.Specification
+import org.gradle.testkit.runner.GradleRunner
+
+import static org.gradle.testkit.runner.TaskOutcome.NO_SOURCE
+import static org.gradle.testkit.runner.TaskOutcome.SUCCESS
 
 @Slf4j
 class JpaModelgenPluginSpec extends AbstractPluginProjectSpec {

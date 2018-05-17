@@ -1,18 +1,13 @@
 package at.comm_unity.gradle.plugins.jpamodelgen
 
-import java.nio.file.FileVisitResult
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
-import java.nio.file.SimpleFileVisitor
-import java.nio.file.attribute.BasicFileAttributes
-
+import groovy.util.logging.Slf4j
 import org.junit.After
 import org.junit.Before
 import org.junit.rules.TemporaryFolder
-
-import groovy.util.logging.Slf4j
 import spock.lang.Specification
+
+import java.nio.file.*
+import java.nio.file.attribute.BasicFileAttributes
 
 @Slf4j
 public class AbstractPluginProjectSpec extends Specification {
