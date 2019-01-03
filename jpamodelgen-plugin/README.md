@@ -4,6 +4,9 @@
 [![Build Status of develop Branch](https://travis-ci.org/iboyko/gradle-plugins.svg?branch=develop)](https://travis-ci.org/iboyko/gradle-plugins)
 [![Version](https://img.shields.io/badge/current%20version-1.1.4-red.svg)](https://github.com/iboyko/gradle-plugins/releases/tag/jpamodelgen-1.1.4)
 
+**Dokumentation for latest released verson 1.1.4 can be found [here](https://github.com/iboyko/gradle-plugins/blob/3d9150c567a047a01a398f9c883abf12789c6dbc/jpamodelgen-plugin/README.md).**
+
+
 ### Description
 
 This plugin makes it easy to generate JPA Metamodel classes within a project. 
