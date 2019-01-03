@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Build Status of develop Branch](https://travis-ci.org/iboyko/gradle-plugins.svg?branch=develop)](https://travis-ci.org/iboyko/gradle-plugins)
+[![Version](https://img.shields.io/badge/current%20version-1.1.4-red.svg)](https://github.com/iboyko/gradle-plugins/releases/tag/jpamodelgen-1.1.4)
 
 ### Description
 
@@ -10,7 +11,11 @@ Only Hibernate annotation processor is now supported. The plugin will not manage
 It is still up to the end-user to add the required dependencies like JPA, Hibernate, ... 
 Additionally the repository closure should be also configured for project to retrieve processor dependency.
 
+
+
 ### Whats new in Version 2.0.0
+*Version 2.0.0 is not released yet!!!*
+
 Version 2.0.0 and 1.x are not compatible. Plugin configuration, when such is present, should be changed to Version 2.0.0.
 
 Changes:
