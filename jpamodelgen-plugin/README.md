@@ -14,7 +14,7 @@ Additionally the repository closure should be also configured for project to ret
 
 
 ### Whats new in Version 2.0.0
-*Version 2.0.0 is not released yet!!!*
+**Version 2.0.0 is not released yet!!!**
 
 Version 2.0.0 and 1.x are not compatible. Plugin configuration, when such is present, should be changed to Version 2.0.0.
 
